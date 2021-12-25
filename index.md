@@ -1,5 +1,3 @@
-% Proposal/Questions
-
 # Proposal 0.1 - Mobile App
 
 Creation of Mobile App with Android Studio using Kotlin
@@ -14,6 +12,9 @@ Creation of Mobile App with Android Studio using Kotlin
 
 Concern with mobile app is dev time/ taking time away from python component, but would project much more convenient/accessible from user standpoint considering how phones are used today, pretty much kept on the person at all times
 
+Mobile App makes things much much easier inputwise, rather than a GUI from desktop
+
+If time permits, can actually use the mobile app during the presentation, depends on how much time/technical work is done
 
 # Proposal 1 - Home Automation / Smart Home
 
@@ -116,21 +117,39 @@ Really boring but very practical
     - Flowchart
         - How user input/events translate into actions
         - 
+
     - Data flow diagram
         - 
+
     - Block Diagram
         - Connections of devices / network
+
     - Gantt Chart
         - Overview of Work to be done
             - Pre-planning
             - Procurement of parts
             - Technical Work, Design / Implementation
             
+    - Feasibility Matrix
+        - Evaluation of multiple ideas
+            - Probably do after initial idea generation/proposal
+
+    - Mobile
+        - If mobile app is created, create a placeholder storyboard-ish, placeholder buttons and texts that dont need to work but show possible layouts
+        - If mobile can show how ubiquitous the phone has become in daily life, pretty much everyone has one on their person
+            - Can do some stats or something with it
+            - Maybe Singaporean numbers or something
+            
 
 - Has the team come up with a creative idea / solution to the user’s problem? 
     - Problematic part
+        - Reinvent the wheel? Make it very slick? Does the idea even need to be the one we finally make
 
 - Is the presentation lively & engaging?
+    - Refer to example given 
+
+
+
 
 
 
