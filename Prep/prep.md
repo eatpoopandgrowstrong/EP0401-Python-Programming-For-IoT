@@ -1,9 +1,5 @@
 # Stuff to Prep for Darren
 
-
-
-
-
 Software:
 - Python
     - 3.9, maybe not 3.10, think matplotlib do not have support for it yet
