@@ -1,37 +1,98 @@
-## Welcome to GitHub Pages
+# Proposal 0.1 - Mobile App
 
-You can use the [editor on GitHub](https://github.com/eatpoopandgrowstrong/EP0401-Python-Programming-For-IoT/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Creation of Mobile App with Android Studio using Kotlin
+- Transmit to Raspberry Pi server
+    - Communicate User Input
+    - Communicate other properties, user location using GPS
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Receive from Raspberry Pi server
+    - Display Information from server
+    - Generate notifications for user upon events
+    - 
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+# Proposal 1 - Home Automation / Smart Home
 
-# Header 1
-## Header 2
-### Header 3
+Features
+- 
+- 
 
-- Bulleted
-- List
+Hardware Requirements:
+- Camera
+- Raspberry Pi
+- Motor for mechanism etc
+- Have some linear actuators, can use them to simulate curtains etc
+    - Curtains open/close depending on time of day, or user input
+    - Curtains can open/close depending on what user is doing, watching movies etc
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+Personal Opinion:
+Standard    
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/eatpoopandgrowstrong/EP0401-Python-Programming-For-IoT/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+
+# Proposal 2 - Smart Toilet
+
+User can feedback cleanliness of toilet/ notify maintenance if their presence is required:
+- Toilet not flushing properly, flooding, wet floor etc
+
+
+
+
+# Proposal 3 - Smart Car Park
+
+- Track the number of cars, track where the cars park etc, can be used to collect data for future car park planning
+
+
+# Proposal 4 - Smart Dustbin/Recycling
+
+Use ultrasonic sensor or something to keep track of capacity/ when will be required to be emptied. 
+Once triggered, cleaning personnel can be sent to pick up the trash, replace bin liner
+Reduces manpower/makes manpower more efficient
+
+
+
+
+
+# Questions for Mr Chong:
+- Possible to run on own hardware/raspberry pi? Compared to
+- Availability of other hardware apart from kits? Guessing little to none? Anything outsided of the kit hardware will have to provided on our own?
+- We're looking for a minimum viable prototype? So use 
+
+
+Presentation Component 20%
+- Has the team done good research & analysis to understand user needs?
+    - Trends
+        - Home 
+            - Work from home due to COVID, with COVID being an endemic 
+            - Increased home purchases due to online shopping increase, more online e-commerce websites
+        - F
+
+- Has the team shown that the project is feasible with the block diagram, flowchart, data flow diagram & Gantt chart?
+    - Flowchart
+        - How user input/events translate into actions
+        - 
+    - Data flow diagram
+        - 
+    - Block Diagram
+        - Connections of devices / network
+    - Gantt Chart
+        - Overview of Work to be done
+            - Pre-planning
+            - Procurement of parts
+            - Technical Work, Design / Implementation
+            
+
+- Has the team come up with a creative idea / solution to the user’s problem? 
+    - Problematic part
+
+- Is the presentation lively & engaging?
+
+
+
+
