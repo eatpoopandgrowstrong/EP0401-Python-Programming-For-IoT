@@ -12,6 +12,17 @@ Software:
 
     - Would be nice to haves
 
+- Editors:
+    - Personal Preference, try both, feel free to explore others
+        - Visual Studio Code
+        - Spyder
+
+- 
+
+Hardware:
+- Maybe webcam etc if opencv
+- Breadboarding? For testing only, will be pretty jank if final
+
 
 ## How to view modules?
 - Go to cmd prompt and type pip list
@@ -33,3 +44,13 @@ if no numpy
 pip install numpy
 
 ```
+
+Reading:
+
+PEP8, for standardisation of coding format
+
+This is Python, so we use snake case here
+
+
+
+
