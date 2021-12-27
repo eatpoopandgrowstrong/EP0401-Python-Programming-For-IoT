@@ -10,11 +10,22 @@ Creation of Mobile App with Android Studio using Kotlin
     - Generate notifications for user upon events
     - 
 
-Concern with mobile app is dev time/ taking time away from python component, but would project much more convenient/accessible from user standpoint considering how phones are used today, pretty much kept on the person at all times
+Concern with mobile app is dev time/ taking time away from python component, but would make project much more convenient/accessible from user standpoint considering how phones are used today, pretty much kept on the person at all times
 
 Mobile App makes things much much easier inputwise, rather than a GUI from desktop
 
 If time permits, can actually use the mobile app during the presentation, depends on how much time/technical work is done
+
+Example of work done thus far, below image shows reading of data from thingspeak, need some manipulation to read field data
+
+![BarebonesMobileApp](../Images/BarebonesReceive.png)
+
+Example of possible implementation:
+
+![Example Of Mobile App](../Images\saveSlotsWithSettings.png)
+
+Pretty barebones, but the slider can be used to adjust the brightness of lights, buttons can be added to allow for multiple lighting profiles, such as when watching a movie etc
+
 
 # Proposal 1 - Home Automation / Smart Home
 
@@ -29,9 +40,6 @@ Features
 System Diagram:
 
 ![SystemDiagram](../Images/SystemDiagramTestExport.svg)
-
-
-
 
 
 
@@ -87,11 +95,9 @@ Can be used for trash/trucks as well
 - Use of OPENCV:
     - Use OpenCV to detect whether items are actually 
 
-# Proposal 5
+# Proposal 5 - Baby monitoring system
 
 Baby monitoring system lmao
-
-
 
 
 
@@ -99,15 +105,17 @@ Baby monitoring system lmao
 
 Really boring but very practical
 
-
+- Measure the amount of 
 
 
 
 # Questions for Mr Chong:
-- Possible to run on own hardware/raspberry pi? Compared to
+- Possible to run on own hardware/raspberry pi?
 - Availability of other hardware apart from kits? Guessing little to none? Anything outsided of the kit hardware will have to provided on our own?
-- We're looking for a minimum viable prototype? So use motor to "emulate" mechanisms such as curtain motors etc?
+- We're looking for a minimum viable prototype? So use motor to "emulate" mechanisms such as curtain motors etc? As seen in the project demonstration videos? Servo motor for door opening etc
 - Do we need to reinvent the wheel? Or just make a very slick implementation of a basic idea?
+
+- For the OpenCV project 
 
 
 
