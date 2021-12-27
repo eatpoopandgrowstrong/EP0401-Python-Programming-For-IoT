@@ -26,6 +26,8 @@ Features
 - Use of Mobile App if created, much more accessible/convenient for user , instead of some touch panel etc
 - Smart doorbell, allows user to view deliveries even if not at home, manually open the door/ensure that the doorman doesnt steal stuff etc
 
+System Diagram:
+![SystemDiagram](/Images\SystemDiagramTestExport.svg)
 
 
 
