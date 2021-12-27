@@ -1,6 +1,7 @@
 # EP0401 Python Programming for IoT Homepage
 
-[Test](www.google.com)
+[Test](https://www.google.com)
+[Test2](DraftProjectProposal\readme.md)
 
 
 
