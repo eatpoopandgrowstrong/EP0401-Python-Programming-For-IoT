@@ -28,7 +28,7 @@ Features
 
 System Diagram:
 
-![SystemDiagram](Images/SystemDiagramTestExport.svg)
+![SystemDiagram](../Images/SystemDiagramTestExport.svg)
 
 
 
