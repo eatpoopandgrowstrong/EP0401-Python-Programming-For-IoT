@@ -44,19 +44,26 @@ System Diagram:
 
 
 Hardware Requirements:
-- Camera for smart doorbell/ views of house
+- Camera/Webcam for smart doorbell/ views of house
 - Raspberry Pi
 - Motor for mechanism etc
 - Have some linear actuators, can use them to simulate curtains etc
     - Curtains open/close depending on time of day, or user input
     - Curtains can open/close depending on what user is doing, watching movies etc
 
+- Maybe Arduino Uno + RGB leds on breadboard to show lighting
+
+
 
 Personal Opinion:
 
-Not very creative/ but room for many features but not 
+Not very creative/ but room for many features but no core feature, very wide but not much depth
 
+One concern for the lighting would be the time it takes to react with such an approach based on thingspeak due to its 10s cap? Just leave it as a limitation? Or use other options?
 
+Perhaps a socket approach would be better?
+
+Thingspeak can be sort of mitigated by using multiple fields, if field
 
 
 
@@ -92,20 +99,21 @@ Reduces manpower/makes manpower more efficient
 
 Can be used for trash/trucks as well
 
-- Use of OPENCV:
-    - Use OpenCV to detect whether items are actually 
 
 # Proposal 5 - Baby monitoring system
 
 Baby monitoring system lmao
 
 
-
 # Proposal 6 - Smart Greenhouse
 
 Really boring but very practical
 
-- Measure the amount of 
+- Measure humidity/temperature of multiple areas in greenhouse
+    - Collect data
+    - Allow plotting with webserver or through thingspeak
+
+
 
 
 
@@ -115,7 +123,13 @@ Really boring but very practical
 - We're looking for a minimum viable prototype? So use motor to "emulate" mechanisms such as curtain motors etc? As seen in the project demonstration videos? Servo motor for door opening etc
 - Do we need to reinvent the wheel? Or just make a very slick implementation of a basic idea?
 
-- For the OpenCV project 
+- Any timeline for when the project demonstration is? 1-2 weeks before MST? Seems like time is very limited, term is very short, after presentation maybe 1 month to end of sem
+- Any guides/pointers for sockets, think it would better than a thingspeak implementation due to thingspeak's rate limitation
+
+
+- How realistic is that OpenCV face recognition project? It just has the face recognition but no purpose/use
+
+
 
 
 
