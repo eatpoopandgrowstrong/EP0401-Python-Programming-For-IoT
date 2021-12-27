@@ -27,7 +27,8 @@ Features
 - Smart doorbell, allows user to view deliveries even if not at home, manually open the door/ensure that the doorman doesnt steal stuff etc
 
 System Diagram:
-![SystemDiagram](/Images/SystemDiagramTestExport.svg)
+
+![SystemDiagram](Images/SystemDiagramTestExport.svg)
 
 
 
