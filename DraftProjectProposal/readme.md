@@ -28,6 +28,10 @@ Features
 
 
 
+
+
+
+
 Hardware Requirements:
 - Camera for smart doorbell/ views of house
 - Raspberry Pi
