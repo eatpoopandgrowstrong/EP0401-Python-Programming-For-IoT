@@ -2,6 +2,8 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from pprint import pprint
 import time
+import numpy as np
+
 
 def main():
     
@@ -29,20 +31,29 @@ def main():
 
     API_DELAY = 0.01
 
+    number = 0
+
+
     while(1):
+
+        
 
         for count,line in enumerate(sheet_list):
 
-            data = line.get_all_records()
+            number += 1
 
-            pprint(data)
-            #time.sleep(API_DELAY)
+            test_list = [number,number,number,number,number]
 
-    '''
-    Idea is just to read the entire sheet at once, uses 1 API call instead of multiple individual calls
-    Just have to do some manipulation/planning for the formatting
-    
-    '''
+        
+            #line.update('A1:B2', [[1, 2], [3, 4]])
+
+            #line.update("A1:A2", [[1],[2]])
+
+            line.update("A1:E2", [["Number"], test_list])
+            print(f"Number is {number}")
+
+        
+
 
 
 
