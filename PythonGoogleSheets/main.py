@@ -42,6 +42,13 @@ def main():
     Idea is just to read the entire sheet at once, uses 1 API call instead of multiple individual calls
     Just have to do some manipulation/planning for the formatting
     
+    Have this chucked on raspberry pi, raise a flag if anything changes, do some if else or switch statements
+
+    Workflow -> Code on PC, run testing on raspberry pi -> Merge to main
+
+    
+
+
     '''
 
 
