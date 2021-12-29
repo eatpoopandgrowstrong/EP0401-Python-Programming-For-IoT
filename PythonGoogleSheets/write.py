@@ -49,7 +49,15 @@ def main():
 
             #line.update("A1:A2", [[1],[2]])
 
-            line.update("A1:E2", [["Number"], test_list])
+            #line.update("A1:E2", [["Number"], test_list])
+            
+            '''
+            just expand as required as number of quantities increases
+
+            idea is to just update the data row only:
+            '''
+            line.update("A2:E2", [test_list])
+            
             print(f"Number is {number}")
 
         
