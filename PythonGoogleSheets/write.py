@@ -27,7 +27,10 @@ def main():
         creds_list[count] = ServiceAccountCredentials.from_json_keyfile_name(line)
         client_list[count] = gspread.authorize(creds_list[count])
 
-        sheet_list[count] = client_list[count].open("IoT").sheet1
+        #sheet_list[count] = client_list[count].open("IoT").sheet1
+        # the .sheet1 method by default opens the first sheet, but by using .worksheet method the sheet can be specified
+
+        sheet_list[count] = client_list[count].open("IoT").worksheet('Sheet2')
 
     API_DELAY = 0.01
 
