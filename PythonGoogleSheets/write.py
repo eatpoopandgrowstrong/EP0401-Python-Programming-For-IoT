@@ -7,6 +7,14 @@ import numpy as np
 
 def main():
     
+    # Setup
+
+    # gsheet_connection_function()
+
+    # io_connection_function()
+
+
+
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file","https://www.google.a"]
 
     creds_path = ["PythonGoogleSheets\creds\creds1.json","PythonGoogleSheets\creds\creds2.json","PythonGoogleSheets\creds\creds3.json","PythonGoogleSheets\creds\creds4.json","PythonGoogleSheets\creds\creds5.json"]
