@@ -7,6 +7,14 @@ import numpy as np
 
 def main():
     
+    # Setup
+
+    # gsheet_connection_function()
+
+    # io_connection_function()
+
+
+
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file","https://www.google.a"]
 
     creds_path = ["PythonGoogleSheets\creds\creds1.json","PythonGoogleSheets\creds\creds2.json","PythonGoogleSheets\creds\creds3.json","PythonGoogleSheets\creds\creds4.json","PythonGoogleSheets\creds\creds5.json"]
@@ -27,7 +35,10 @@ def main():
         creds_list[count] = ServiceAccountCredentials.from_json_keyfile_name(line)
         client_list[count] = gspread.authorize(creds_list[count])
 
-        sheet_list[count] = client_list[count].open("IoT").sheet1
+        #sheet_list[count] = client_list[count].open("IoT").sheet1
+        # the .sheet1 method by default opens the first sheet, but by using .worksheet method the sheet can be specified
+
+        sheet_list[count] = client_list[count].open("IoT").worksheet('Sheet2')
 
     API_DELAY = 0.01
 
