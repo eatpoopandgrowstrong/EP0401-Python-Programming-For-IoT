@@ -4,25 +4,25 @@ import serial.tools.list_ports
 import time
 
 
-global ser
+
         
 def ConnectToArduino(COMPortToBeConnectedString,Baudrate, Timeout):
     
-        global ser
-        ser = serial.Serial(
+    global ser
+    ser = serial.Serial(
                 
-                port = COMPortToBeConnectedString,
-                baudrate = Baudrate,
-                timeout = Timeout,
+        port = COMPortToBeConnectedString,
+         baudrate = Baudrate,
+         timeout = Timeout,
                 
                 
                 )
         
-        time.sleep(0.01)
-        ser.flushInput()
-        time.sleep(0.01)
-        ser.flushOutput()
-        time.sleep(0.01)
+    time.sleep(0.01)
+    ser.flushInput()
+    time.sleep(0.01)
+    ser.flushOutput()
+    time.sleep(0.01)
         
 def CommCheck():
     

@@ -3,6 +3,8 @@ void LED1Function();
 void LED2Function();
 void LED3Function();
 void LED4Function();
+
+
 // Serial Stuff
 const byte NumChars = 128;
 char ReceivedChars[NumChars];
@@ -21,6 +23,8 @@ bool LED4Flag = false;
 byte LEDMillisInterval = 50;
 unsigned long PreviousLED1Millis;
 unsigned long PreviousLED2Millis;
+unsigned long PreviousLED3Millis;
+unsigned long PreviousLED4Millis;
 
 
 const byte LED1 = 2;
@@ -75,8 +79,11 @@ void setup() {
   Serial.begin(115200); // Use highest officially supported baudrate on Arduino Uno
   
   Serial.print("<Arduino Is Ready>"); // Required for Python
-  digitalWrite(2,LOW);
-  digitalWrite(4,LOW);
+  digitalWrite(LED1,LOW);
+  digitalWrite(LED2,LOW);
+  digitalWrite(LED3,LOW);
+  digitalWrite(LED4,LOW);
+  
   /*
    *  Standard Handshake Setup
    *  Serial Communication resets the Arduino Uno, starting the setup sequence
@@ -146,7 +153,7 @@ void loop() {
    LED2Function();
    LED3Function();
    LED4Function();
-
+  
 
 
 
@@ -239,7 +246,7 @@ void Decoder(){
   
   else if(ReceivedString == "LED4toggle"){
     
-    LED3Flag = true;
+    LED4Flag = true;
     
   }
 
@@ -253,7 +260,7 @@ void LED1Function(){
 
   static bool LED1Status = LOW;
 
-  if(LED1Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
+  if(LED1Flag == true & CurrentMillis - PreviousLED1Millis >= LEDMillisInterval){
 
     if(LED1Status == LOW){
       digitalWrite(LED1, HIGH);
@@ -264,13 +271,14 @@ void LED1Function(){
       LED1Status = LOW;
     }
     LED1Flag = false;
+    PreviousLED1Millis=CurrentMillis;
   }
 }
- void LED2Function(){
+void LED2Function(){
 
   static bool LED2Status = LOW;
 
-  if(LED2Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
+  if(LED2Flag == true & CurrentMillis - PreviousLED2Millis >= LEDMillisInterval){
 
     if(LED2Status == LOW){
       digitalWrite(LED2, HIGH);
@@ -281,13 +289,14 @@ void LED1Function(){
       LED2Status = LOW;
     }
     LED2Flag = false;
+    PreviousLED2Millis=CurrentMillis;
   }
- }
+}
 void LED3Function(){
 
   static bool LED3Status = LOW;
 
-  if(LED3Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
+  if(LED3Flag == true & CurrentMillis - PreviousLED3Millis >= LEDMillisInterval){
 
     if(LED3Status == LOW){
       digitalWrite(LED3, HIGH);
@@ -298,14 +307,15 @@ void LED3Function(){
       LED3Status = LOW;
     }
     LED3Flag = false;
+    PreviousLED3Millis=CurrentMillis;
   }
 }
-  void LED4Function()
-  {
+
+void LED4Function(){
 
   static bool LED4Status = LOW;
 
-  if(LED4Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
+  if(LED4Flag == true & CurrentMillis - PreviousLED4Millis >= LEDMillisInterval){
 
     if(LED4Status == LOW){
       digitalWrite(LED4, HIGH);
@@ -316,6 +326,7 @@ void LED3Function(){
       LED4Status = LOW;
     }
     LED4Flag = false;
+    PreviousLED4Millis=CurrentMillis;
   }
 }
 
