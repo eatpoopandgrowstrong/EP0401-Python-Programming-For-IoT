@@ -8,8 +8,29 @@
  */
 
 /* Variable Optimisation Guide:
+ *  
+ *  boolean
+ *  
+ *  byte
+ *  byte is unsigned from 0 to 255
+ *  
+ *  int
+ *  
+ *  
+ *  unsigned int
+ *  
+ *  
+ *  
+ *  
  * Flags -> Use boolean, either true or false
  * 
+ * 
+ * 
+ * Use static for variables that will remain inside the loop
+ * Stuff like: 
+ *  Count etc
+ * 
+ *  
  * 
  * 
  * 
@@ -33,7 +54,8 @@ boolean LEDFlag = false;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200); // Use highest officially supported baudrate on Arduino Uno
-
+  
+  Serial.print("<Arduino Is Ready>"); // Required for Python
   /*
    *  Standard Handshake Setup
    *  Serial Communication resets the Arduino Uno, starting the setup sequence
@@ -50,6 +72,32 @@ void setup() {
     * 2 RGB LEDs, might not have enough IO
     * 5 + 6?
     * Ideally reserve another pin for DC motor or servo motor
+    * Need to assign RGB LED Pinout to PWM
+    * 
+    * Uno PWM Pins are 3, 5, 6, 9, 10 and 11
+    * 
+    * 3,5,6 for RGB LED 1
+    * 9, 10 and 11 for RGB LED2
+    * 
+    * 0 RX
+    * 1 TX
+    * 2 LED 1
+    * 3 RGB LED 1 R CHANNEL
+    * 4 LED 2
+    * 5 RGB LED 1 G CHANNEL
+    * 6 RGB LED 1 B CHANNEL
+    * 7 LED 3
+    * 8 LED 4
+    * 9 RGB LED 2 R CHANNEL
+    * 10 RGB LED 2 G CHANNEL
+    * 11 RGB LED 2 B CHANNEL
+    * 12 LED 5
+    * 13 APPLIANCE 1
+    * 
+    * Seems ok for the assignment, maybe cut 1 LED and put in another appliance?
+    * Ideally would use LED strips, concerned about time/implementation of that as well
+    * Doesnt seem like there is enough time for that
+    * 
     * 
     */
     //pinMode();
@@ -67,7 +115,9 @@ void loop() {
    * 
    * 
    */
-   CurrentMillis = millis()
+   CurrentMillis = millis();
+   ReceiveCharsWithStartAndEndMarkers();
+   Decoder();
 
 
 
@@ -76,7 +126,16 @@ void loop() {
    
 }
 
-void DecoderFunction(){
+void ReceiveCharsWithStartAndEndMarkers(){
+
+  
+
+
+  
+}
+
+
+void Decoder(){
 
   
 }
