@@ -46,19 +46,15 @@ def main():
     Something to note is that messages sent without the start and endmarker will result in the message not
     being recognised
     '''
-
+    
     SC.ser.write("<Testing>".encode())
     SC.ser.write("<LED1toggle>".encode())
-    
     SC.ser.write("<LED2toggle>".encode())
-    
     SC.ser.write("<LED3toggle>".encode())
     SC.ser.write("<LED4toggle>".encode())
     time.sleep(1)
     SC.ser.write("<LED1toggle>".encode())
-    
     SC.ser.write("<LED2toggle>".encode())
-    
     SC.ser.write("<LED3toggle>".encode())
     SC.ser.write("<LED4toggle>".encode())
     # Code to disconnect from Arduino if script stops
