@@ -56,6 +56,15 @@ boolean LEDFlag = false;
 
 
 
+const byte LED1 = 2;
+const byte LED2 = 4;
+
+/*
+const byte
+const byte
+const byte
+*/
+
 
 
 
@@ -108,8 +117,9 @@ void setup() {
     * 
     * 
     */
-    //pinMode();
-
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, LOW);
+  
 
 
     
@@ -183,8 +193,23 @@ void ReceiveCharsWithStartAndEndMarkers(){
 
 
 void Decoder(){
+  if(NewData == true){
+    
+    String ReceivedString = ReceivedChars;
+    
+    if(ReceivedString == "Comm Check"){
 
-  //test 
+      Serial.print("<Readback>");
+      
+    }
+    else if(ReceivedString == "Testing"){
+
+      digitalWrite(LED_BUILTIN, HIGH);
+
+    }
+    NewData = false;
+    
+  } 
 }
 
 void LEDTestFunction(){

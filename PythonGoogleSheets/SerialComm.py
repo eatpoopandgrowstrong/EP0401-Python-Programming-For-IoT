@@ -91,6 +91,8 @@ def WaitForArduino():
 def ReceiveStringWithStartAndEndMarkers():
     
     global StartMarker, EndMarker
+    StartMarker = '<'
+    EndMarker = '>'
     
     ReceiveInProgress = False
     ReceiveString = ""
