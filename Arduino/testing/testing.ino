@@ -1,10 +1,29 @@
 void Decoder();
+void LED1Function();
 
+// Serial Stuff
 const byte NumChars = 128;
-
 char ReceivedChars[NumChars];
-boolean NewData = false;
-boolean NewDataNotDealtWith = false;
+bool NewData = false;
+bool NewDataNotDealtWith = false;
+
+// Millis 
+unsigned long CurrentMillis;
+
+// LED Flags and Millis
+bool LED1Flag = false;
+bool LED2Flag = false;
+
+byte LEDMillisInterval = 50;
+unsigned long PreviousLED1Millis;
+unsigned long PreviousLED2Millis;
+
+
+const byte LED1 = 2;
+const byte LED2 = 4;
+
+
+
 
 /*
  * TODO: Millis
@@ -17,7 +36,7 @@ boolean NewDataNotDealtWith = false;
 
 /* Variable Optimisation Guide:
  *  
- *  boolean
+ *  bool
  *  
  *  byte
  *  byte is unsigned from 0 to 255
@@ -30,7 +49,7 @@ boolean NewDataNotDealtWith = false;
  *  
  *  
  *  
- * Flags -> Use boolean, either true or false
+ * Flags -> Use bool, either true or false
  * 
  * 
  * 
@@ -38,32 +57,9 @@ boolean NewDataNotDealtWith = false;
  * Stuff like: 
  *  Count etc
  * 
- *  
- * 
- * 
- * 
- * 
  * 
  */
 
-
-unsigned long CurrentMillis;
-
-//unsigned long 
-boolean LEDFlag = false;
-
-
-
-
-
-const byte LED1 = 2;
-const byte LED2 = 4;
-
-/*
-const byte
-const byte
-const byte
-*/
 
 
 
@@ -78,11 +74,6 @@ void setup() {
    *  Serial Communication resets the Arduino Uno, starting the setup sequence
    *  
    */
-
-
-
-
-
    /*
     * PinMode Setup
     * Right now Idea is 5 LEDs
@@ -119,10 +110,14 @@ void setup() {
     */
     pinMode(LED_BUILTIN, OUTPUT);
     digitalWrite(LED_BUILTIN, LOW);
-  
 
-
+    pinMode(LED1, OUTPUT);
+    pinMode(LED2, OUTPUT);
     
+    
+
+
+
   
 }
 
@@ -130,7 +125,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   /*
    * Run Decoder followed by functions
-   * 
+   * Is a polling method 
    * 
    */
    CurrentMillis = millis();
@@ -145,7 +140,7 @@ void loop() {
 }
 
 void ReceiveCharsWithStartAndEndMarkers(){
-  static boolean ReceiveInProgress = false;
+  static bool ReceiveInProgress = false;
   static byte count = 0;
   char StartMarker = '<';
   char EndMarker = '>';
@@ -185,12 +180,6 @@ void ReceiveCharsWithStartAndEndMarkers(){
   }
 
 }
-  
-
-
-  
-
-
 
 void Decoder(){
   if(NewData == true){
@@ -207,13 +196,59 @@ void Decoder(){
       digitalWrite(LED_BUILTIN, HIGH);
 
     }
+    /*
+     * To make a unique call for on/off? Or just a call to toggle the light 
+     * Might have to introduce some delay into the python script, scared it'll spam the crap out of the serial port
+     * Have to do some testing on this
+     * Test without any delays and see how bad it is 
+     */
+     
+    else if(ReceivedString == "LED1HIGH"){
+
+      LED1Flag = true;
+    
+    }
+
+    else if(ReceivedString == "LED1LOW"){
+
+      
+    
+    }
+
+    /*
+    else if(ReceivedString == ""){
+
+      
+    
+    }
+    */
+
+
+
+    
     NewData = false;
     
-  } 
+  }
 }
 
-void LEDTestFunction(){
+void LED1Function(){
 
+  static bool LED1Status = LOW;
 
+  if(LED1Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
+
+    if(LED1Status == LOW){
+      digitalWrite(LED2, HIGH);
+      LED1Status = HIGH;
+    }
+    else{
+      digitalWrite(LED1, LOW);
+      LED1Status = LOW;
+    }
+    LED1Flag = false;
+  }
+  
   
 }
+
+// Idea is to just copy paste the LED Functions

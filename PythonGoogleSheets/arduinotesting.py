@@ -1,5 +1,7 @@
 import SerialComm as SC
+import importlib
 
+importlib.reload(SC)
 '''
 SerialComm module is a bit dated, uses camel case
 Needs some rewriting to just connect everything atuomatically, shouldn't need to have write another function in main
