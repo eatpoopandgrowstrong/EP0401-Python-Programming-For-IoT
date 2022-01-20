@@ -39,6 +39,8 @@ def main():
     sheet1, sheet2, sheet3, sheet4, sheet5 = None, None, None, None, None
     sheet_list = [sheet1, sheet2, sheet3, sheet4, sheet5]
 
+
+
     # Setup
 
     for count, line in enumerate(creds_path):
@@ -48,10 +50,8 @@ def main():
 
         sheet_list[count] = client_list[count].open("IoT").worksheet('Sheet1')
 
-    LED1state=0
-    LED2state=0
-    LED3state=0
-    LED4state=0
+   
+    LEDstate_list = [0, 0, 0, 0]
     while(1):
 
         for count,line in enumerate(sheet_list):
@@ -62,55 +62,36 @@ def main():
                 newrow.append(int(line))
 
 
-            if(LED1state == 0 and newrow[0] == 1):
+            if(LEDstate_list[0] == 0 and newrow[0] == 1):
                 SC.ser.write("<LED1toggle>".encode())
-                LED1state=1
-            elif(LED1state == 1 and newrow[0] ==0):
+                LEDstate_list[0]=1
+            elif(LEDstate_list[0] == 1 and newrow[0] ==0):
                 SC.ser.write("<LED1toggle>".encode())
-                LED1state=0
-            print(row) 
-            print(newrow)
-            print(LED1state)  
-  
-   
+                LEDstate_list[0]=0
 
-
-           
-            
-
-            if(LED2state == 0 and newrow[1] == 1):
+            if(LEDstate_list[1] == 0 and newrow[1] == 1):
                 SC.ser.write("<LED2toggle>".encode())
-                LED2state=1
-            elif(LED2state == 1 and newrow[1] ==0):
+                LEDstate_list[1]=1
+            elif(LEDstate_list[1] == 1 and newrow[1] ==0):
                 SC.ser.write("<LED2toggle>".encode())
-                LED2state=0
+                LEDstate_list[1]=0
    
-
-
-      
-
-           
-
-            if(LED3state == 0 and newrow[2] == 1):
+            if(LEDstate_list[2] == 0 and newrow[2] == 1):
                 SC.ser.write("<LED3toggle>".encode())
-                LED3state=1
-            elif(LED3state == 1 and newrow[2] == 0):
+                LEDstate_list[2] =1
+            elif(LEDstate_list[2]  == 1 and newrow[2] == 0):
                 SC.ser.write("<LED3toggle>".encode())
-                LED3state=0
+                LEDstate_list[2] =0
    
-    
-
-       
+            if(LEDstate_list[3]  == 0 and newrow[3] == 1):
+                SC.ser.write("<LED4toggle>".encode())
+                LEDstate_list[3]=1
+            elif(LEDstate_list[3] == 1 and newrow[3] == 0):
+                SC.ser.write("<LED4toggle>".encode())
+                LEDstate_list[3]=0    
 
             
 
-            
-            if(LED4state == 0 and newrow[3] == 1):
-                SC.ser.write("<LED4toggle>".encode())
-                LED4state=1
-            elif(LED4state == 1 and newrow[3] == 0):
-                SC.ser.write("<LED4toggle>".encode())
-                LED4state=0    
         
 if __name__ == "__main__":
     main()
