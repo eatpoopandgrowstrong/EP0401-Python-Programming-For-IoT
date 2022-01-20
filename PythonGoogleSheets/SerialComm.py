@@ -12,8 +12,8 @@ def ConnectToArduino(COMPortToBeConnectedString,Baudrate, Timeout):
     ser = serial.Serial(
                 
         port = COMPortToBeConnectedString,
-         baudrate = Baudrate,
-         timeout = Timeout,
+        baudrate = Baudrate,
+        timeout = Timeout,
                 
                 
                 )

@@ -39,8 +39,6 @@ def main():
     sheet1, sheet2, sheet3, sheet4, sheet5 = None, None, None, None, None
     sheet_list = [sheet1, sheet2, sheet3, sheet4, sheet5]
 
-
-
     # Setup
 
     for count, line in enumerate(creds_path):
@@ -56,41 +54,16 @@ def main():
 
         for count,line in enumerate(sheet_list):
 
-            row = line.row_values(2)
-            newrow =[]
-            for count, line in enumerate(row):
-                newrow.append(int(line))
-
-
-            if(LEDstate_list[0] == 0 and newrow[0] == 1):
-                SC.ser.write("<LED1toggle>".encode())
-                LEDstate_list[0]=1
-            elif(LEDstate_list[0] == 1 and newrow[0] ==0):
-                SC.ser.write("<LED1toggle>".encode())
-                LEDstate_list[0]=0
-
-            if(LEDstate_list[1] == 0 and newrow[1] == 1):
-                SC.ser.write("<LED2toggle>".encode())
-                LEDstate_list[1]=1
-            elif(LEDstate_list[1] == 1 and newrow[1] ==0):
-                SC.ser.write("<LED2toggle>".encode())
-                LEDstate_list[1]=0
-   
-            if(LEDstate_list[2] == 0 and newrow[2] == 1):
-                SC.ser.write("<LED3toggle>".encode())
-                LEDstate_list[2] =1
-            elif(LEDstate_list[2]  == 1 and newrow[2] == 0):
-                SC.ser.write("<LED3toggle>".encode())
-                LEDstate_list[2] =0
-   
-            if(LEDstate_list[3]  == 0 and newrow[3] == 1):
-                SC.ser.write("<LED4toggle>".encode())
-                LEDstate_list[3]=1
-            elif(LEDstate_list[3] == 1 and newrow[3] == 0):
-                SC.ser.write("<LED4toggle>".encode())
-                LEDstate_list[3]=0    
-
+            string_row = line.row_values(2) # row_values returns a list of strings
             
+            int_list = [int(x) for x in string_row] #convert the string elements to int
+
+            for count,line in enumerate(int_list): # iterate through the list
+
+                if(line != LEDstate_list[count]):
+                    
+                    SC.ser.write(("<LED" + str(count+1) + "toggle>").encode())
+                    LEDstate_list[count] = line
 
         
 if __name__ == "__main__":
