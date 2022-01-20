@@ -1,3 +1,11 @@
+void Decoder();
+
+const byte NumChars = 128;
+
+char ReceivedChars[NumChars];
+boolean NewData = false;
+boolean NewDataNotDealtWith = false;
+
 /*
  * TODO: Millis
  * Setup of Flags for LEDs
@@ -41,7 +49,7 @@
 
 unsigned long CurrentMillis;
 
-unsigned long 
+//unsigned long 
 boolean LEDFlag = false;
 
 
@@ -127,17 +135,56 @@ void loop() {
 }
 
 void ReceiveCharsWithStartAndEndMarkers(){
+  static boolean ReceiveInProgress = false;
+  static byte count = 0;
+  char StartMarker = '<';
+  char EndMarker = '>';
+  char ReceivedCharacter;
 
-  
+  while (Serial.available() > 0 && NewData == false) {
 
+    ReceivedCharacter = Serial.read();
 
-  
+    if (ReceiveInProgress == true) {
+
+      if (ReceivedCharacter != EndMarker) {
+
+        ReceivedChars[count] = ReceivedCharacter;
+        count++;
+
+        if (count >= NumChars) {
+
+          count = NumChars - 1;
+
+        }
+
+      }
+      else {
+        ReceivedChars[count] = '\0';
+        ReceiveInProgress = false;
+        count = 0;
+        NewData = true;
+      }
+    }
+    else if (ReceivedCharacter == StartMarker) {
+
+      ReceiveInProgress = true;
+
+    }
+
+  }
+
 }
+  
+
+
+  
+
 
 
 void Decoder(){
 
-  
+  //test 
 }
 
 void LEDTestFunction(){
