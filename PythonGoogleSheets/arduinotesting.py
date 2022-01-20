@@ -1,5 +1,6 @@
 import SerialComm as SC
 import importlib
+import time
 
 importlib.reload(SC)
 '''
@@ -47,9 +48,19 @@ def main():
     '''
 
     SC.ser.write("<Testing>".encode())
-
-
-
+    SC.ser.write("<LED1toggle>".encode())
+    
+    SC.ser.write("<LED2toggle>".encode())
+    
+    SC.ser.write("<LED3toggle>".encode())
+    SC.ser.write("<LED4toggle>".encode())
+    time.sleep(1)
+    SC.ser.write("<LED1toggle>".encode())
+    
+    SC.ser.write("<LED2toggle>".encode())
+    
+    SC.ser.write("<LED3toggle>".encode())
+    SC.ser.write("<LED4toggle>".encode())
     # Code to disconnect from Arduino if script stops
     # Have to physically unplug and re-plug if Arduino isn't disconnected
     try:

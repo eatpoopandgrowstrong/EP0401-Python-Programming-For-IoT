@@ -1,6 +1,8 @@
 void Decoder();
 void LED1Function();
-
+void LED2Function();
+void LED3Function();
+void LED4Function();
 // Serial Stuff
 const byte NumChars = 128;
 char ReceivedChars[NumChars];
@@ -13,6 +15,8 @@ unsigned long CurrentMillis;
 // LED Flags and Millis
 bool LED1Flag = false;
 bool LED2Flag = false;
+bool LED3Flag = false;
+bool LED4Flag = false;
 
 byte LEDMillisInterval = 50;
 unsigned long PreviousLED1Millis;
@@ -21,6 +25,8 @@ unsigned long PreviousLED2Millis;
 
 const byte LED1 = 2;
 const byte LED2 = 4;
+const byte LED3 = 7;
+const byte LED4 = 8;
 
 
 
@@ -69,6 +75,8 @@ void setup() {
   Serial.begin(115200); // Use highest officially supported baudrate on Arduino Uno
   
   Serial.print("<Arduino Is Ready>"); // Required for Python
+  digitalWrite(2,LOW);
+  digitalWrite(4,LOW);
   /*
    *  Standard Handshake Setup
    *  Serial Communication resets the Arduino Uno, starting the setup sequence
@@ -113,6 +121,8 @@ void setup() {
 
     pinMode(LED1, OUTPUT);
     pinMode(LED2, OUTPUT);
+    pinMode(LED3, OUTPUT);
+    pinMode(LED4, OUTPUT);
     
     
 
@@ -131,6 +141,12 @@ void loop() {
    CurrentMillis = millis();
    ReceiveCharsWithStartAndEndMarkers();
    Decoder();
+  
+   LED1Function();
+   LED2Function();
+   LED3Function();
+   LED4Function();
+
 
 
 
@@ -203,27 +219,29 @@ void Decoder(){
      * Test without any delays and see how bad it is 
      */
      
-    else if(ReceivedString == "LED1HIGH"){
+    else if(ReceivedString == "LED1toggle"){
 
       LED1Flag = true;
     
     }
 
-    else if(ReceivedString == "LED1LOW"){
+   else if(ReceivedString == "LED2toggle"){
 
-      
+    LED2Flag = true;
+
     
-    }
+   }
 
-    /*
-    else if(ReceivedString == ""){
+  else if(ReceivedString == "LED3toggle"){
 
-      
+    LED3Flag = true;
+  }
+  
+  else if(ReceivedString == "LED4toggle"){
     
-    }
-    */
-
-
+    LED3Flag = true;
+    
+  }
 
     
     NewData = false;
@@ -238,7 +256,7 @@ void LED1Function(){
   if(LED1Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
 
     if(LED1Status == LOW){
-      digitalWrite(LED2, HIGH);
+      digitalWrite(LED1, HIGH);
       LED1Status = HIGH;
     }
     else{
@@ -247,8 +265,58 @@ void LED1Function(){
     }
     LED1Flag = false;
   }
-  
-  
+}
+ void LED2Function(){
+
+  static bool LED2Status = LOW;
+
+  if(LED2Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
+
+    if(LED2Status == LOW){
+      digitalWrite(LED2, HIGH);
+      LED2Status = HIGH;
+    }
+    else{
+      digitalWrite(LED2, LOW);
+      LED2Status = LOW;
+    }
+    LED2Flag = false;
+  }
+ }
+void LED3Function(){
+
+  static bool LED3Status = LOW;
+
+  if(LED3Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
+
+    if(LED3Status == LOW){
+      digitalWrite(LED3, HIGH);
+      LED3Status = HIGH;
+    }
+    else{
+      digitalWrite(LED3, LOW);
+      LED3Status = LOW;
+    }
+    LED3Flag = false;
+  }
+}
+  void LED4Function()
+  {
+
+  static bool LED4Status = LOW;
+
+  if(LED4Flag & PreviousLED1Millis - CurrentMillis >= LEDMillisInterval){
+
+    if(LED4Status == LOW){
+      digitalWrite(LED4, HIGH);
+      LED4Status = HIGH;
+    }
+    else{
+      digitalWrite(LED4, LOW);
+      LED4Status = LOW;
+    }
+    LED4Flag = false;
+  }
 }
 
 // Idea is to just copy paste the LED Functions
