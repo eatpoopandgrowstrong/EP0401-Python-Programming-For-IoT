@@ -35,6 +35,18 @@ def main():
 
             data = line.get_all_records()
 
+            '''
+            Alternatively, just use:
+
+            row = line.row_values(2)
+            Since we already know the layout of the excel spreadsheet
+            
+            row is a list
+            can use simple iteration to get through the values
+            
+
+
+            '''
             pprint(data)
             #time.sleep(API_DELAY)
 
