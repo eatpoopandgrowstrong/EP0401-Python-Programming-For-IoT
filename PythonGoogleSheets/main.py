@@ -61,6 +61,7 @@ def main():
             int_list = [int(x) for x in string_row] #convert the string elements to int
 
             for count,line in enumerate(int_list): # iterate through the list
+            # Will have to modified if the string row exceeds more than the given 4 for now, can be modified to end the loop at 4, use if count == 4 or something and break
 
                 if(line != LEDstate_list[count]):
                     
